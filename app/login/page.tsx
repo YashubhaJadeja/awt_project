@@ -30,32 +30,60 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-sky-100">
-      <form className="bg-white p-6 rounded shadow w-80" onSubmit={handleLogin}>
-        <h2 className="text-xl font-bold text-center mb-4">
-          Role Based Login
+  <div className="min-h-screen flex items-center justify-center bg-[#0b0f1a]">
+    <div className="relative p-[2px] rounded-xl 
+      bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500">
+
+      <form
+        onSubmit={handleLogin}
+        className="bg-[#111827] rounded-xl p-8 w-96 text-white"
+      >
+        <h2 className="text-2xl font-semibold text-center mb-8">
+          Sign in
         </h2>
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 mb-3"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        {/* Email */}
+        <div className="mb-6">
+          <input
+            type="email"
+            placeholder="UserName"
+            className="w-full bg-transparent border-b border-gray-500 
+              focus:outline-none focus:border-cyan-400 
+              placeholder-gray-400 py-2"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full border p-2 mb-3"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        {/* Password */}
+        <div className="mb-4">
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full bg-transparent border-b border-gray-500 
+              focus:outline-none focus:border-pink-400 
+              placeholder-gray-400 py-2"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
+        {/* Extra Links */}
+        <div className="flex justify-between text-sm mb-6">
+          <span className="text-gray-400 cursor-pointer hover:text-white">
+            Forget Password
+          </span>
+          <span className="text-cyan-400 cursor-pointer hover:underline">
+            Signup
+          </span>
+        </div>
+
+        {/* Role */}
         <select
-          className="w-full border p-2 mb-4"
+          className="w-full mb-6 bg-[#111827] border border-gray-600 
+            rounded px-3 py-2 focus:outline-none"
           value={role}
           onChange={(e) => setRole(e.target.value)}
         >
@@ -63,10 +91,16 @@ export default function LoginPage() {
           <option value="admin">Admin</option>
         </select>
 
-        <button className="w-full bg-blue-600 text-white py-2 rounded">
+        {/* Button */}
+        <button
+          type="submit"
+          className="w-full py-2 rounded bg-white text-black 
+            font-semibold hover:bg-gray-200 transition"
+        >
           Login
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
